@@ -23,11 +23,18 @@ if (pkg.devDependencies) {
     dependencies.push.apply(dependencies, Object.keys(pkg.devDependencies));
 }
 // Filter out already installed types
+var alreadyInstalledTypes = dependencies.filter(function (d) { return /^@types\//.test(d); });
+;
 dependencies = dependencies.filter(function (d) { return !/^@types\//.test(d); });
 var _loop_1 = function (dependency) {
+    var dependencyString = chalk.bold(dependency);
+    // Check if types are already installed
+    if (alreadyInstalledTypes.includes('@types/' + dependency)) {
+        console.log(chalk.yellow(figures.play, "Types for " + dependencyString + " already installed. Skipping..."));
+        return "continue";
+    }
     // Check for included types
     var pkgPath = path.join(cwd, 'node_modules', dependency, 'package.json');
-    var dependencyString = chalk.bold(dependency);
     if (fs.existsSync(pkgPath)) {
         var pkg_1 = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
         if (pkg_1.types || pkg_1.typings) {
