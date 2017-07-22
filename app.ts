@@ -10,8 +10,6 @@ import * as figures from "figures";
 const cwd = process.cwd();
 const packagePath = path.join(cwd, 'package.json');
 
-
-
 if (!fs.existsSync(packagePath)) {
     console.error('No package.json file found!');
     process.exit();

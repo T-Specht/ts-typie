@@ -26,9 +26,7 @@ if (pkg.devDependencies) {
 dependencies = dependencies.filter(function (d) { return !/^@types\//.test(d); });
 var _loop_1 = function (dependency) {
     // Check for included types
-    var reqPath = require.resolve(dependency);
-    var modulePath = reqPath.slice(0, reqPath.indexOf(dependency) + dependency.length);
-    var pkgPath = path.join(modulePath, 'package.json');
+    var pkgPath = path.join(cwd, 'node_modules', dependency, 'package.json');
     var dependencyString = chalk.bold(dependency);
     if (fs.existsSync(pkgPath)) {
         var pkg_1 = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
