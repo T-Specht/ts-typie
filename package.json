@@ -1,21 +1,24 @@
 {
-  "name": "typie",
+  "name": "ts-typie",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": " Tim Specht",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/T-Specht/ts-typie.git"
+  },
   "dependencies": {
-    "api-npm": "^1.0.0",
-    "can-haz-package": "^1.0.1",
     "chalk": "^2.0.1",
-    "commander": "^2.11.0",
     "figures": "^2.0.0",
-    "moment": "^2.18.1",
     "request": "^2.81.0"
+  },
+  "bin": {
+    "ts-typie": "./app.js"
   },
   "devDependencies": {
     "@types/chalk": "^0.4.31",
