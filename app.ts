@@ -29,13 +29,22 @@ if (pkg.devDependencies) {
 
 // Filter out already installed types
 
+let alreadyInstalledTypes = dependencies.filter(d => /^@types\//.test(d));;
 dependencies = dependencies.filter(d => !/^@types\//.test(d));
 
 for (let dependency of dependencies) {
+     const dependencyString = chalk.bold(dependency)
+
+    // Check if types are already installed
+
+    if(alreadyInstalledTypes.includes('@types/' + dependency)){
+        console.log(chalk.yellow(figures.play, `Types for ${dependencyString} already installed. Skipping...`));
+        continue;
+    }
 
     // Check for included types
     let pkgPath = path.join(cwd, 'node_modules', dependency, 'package.json');
-    let dependencyString = chalk.bold(dependency)
+   
 
     if(fs.existsSync(pkgPath)){
         const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
