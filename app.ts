@@ -36,11 +36,7 @@ dependencies = dependencies.filter(d => !/^@types\//.test(d));
 for (let dependency of dependencies) {
 
     // Check for included types
-
-    let reqPath = require.resolve(dependency);
-    let modulePath = reqPath.slice(0, reqPath.indexOf(dependency) + dependency.length);
-    let pkgPath = path.join(modulePath, 'package.json');
-
+    let pkgPath = path.join(cwd, 'node_modules', dependency, 'package.json');
     let dependencyString = chalk.bold(dependency)
 
     if(fs.existsSync(pkgPath)){
