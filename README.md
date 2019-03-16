@@ -8,6 +8,16 @@ ts-typie reads your `package.json` file and tries to install TypeScript definiti
 
 For every package you have installed, ts-typie also checks for included definition files that come packed with the npm module itself (e.g. moment includes own definition files) and skips the module if it finds bundled definition files.
 
-## Usage
+## Install
 
-Just install ts-typie globally using `npm install ts-typie -g` and use it in all your TypeScript Projects by running the command `ts-typie` in your terminal in your project folder.
+Install ts-typie as a dev dependancy e.g `npm install -D ts-typie`.  
+
+## Usage
+### Command:
+`ts-typie [options]`
+### Options:
+| Option | Info |
+| - | - |
+| `--help`, `-h` | Output usage information |
+| `--tool [value]`, `-t [value]` | Which package manager tool to use (defaults to first available) |
+| `--version`, `-v` | Output the version number |

@@ -1,10 +1,11 @@
 {
   "name": "ts-typie",
-  "version": "1.1.1",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "A small utility for installing TypeScript definition files",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": " Tim Specht",
   "license": "ISC",
@@ -13,15 +14,21 @@
     "url": "https://github.com/T-Specht/ts-typie.git"
   },
   "dependencies": {
+    "args": "^5.0.0",
     "chalk": "^2.0.1",
+    "command-exists": "^1.2.8",
     "figures": "^2.0.0",
     "request": "^2.81.0"
   },
   "bin": {
-    "ts-typie": "./app.js"
+    "ts-typie": "app.js"
   },
   "devDependencies": {
+    "@types/args": "^3.0.0",
     "@types/chalk": "^0.4.31",
-    "@types/request": "^2.0.0"
+    "@types/command-exists": "^1.2.0",
+    "@types/figures": "^2.0.0",
+    "@types/request": "^2.0.0",
+    "typescript": "^3.3.3"
   }
 }
